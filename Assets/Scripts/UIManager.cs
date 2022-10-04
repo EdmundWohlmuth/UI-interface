@@ -9,6 +9,8 @@ public class UIManager : MonoBehaviour
     public Canvas Pause;
     public Canvas Gameover;
     public Canvas Win;
+    public Canvas Credits;
+    public Canvas Settings;
 
     enum CurrentScreen
     {
@@ -17,6 +19,8 @@ public class UIManager : MonoBehaviour
         _Pause,
         _Gameover,
         _Win,
+        _Settings,
+        _Credits
     }
     CurrentScreen currentScreen;
 
@@ -76,6 +80,8 @@ public class UIManager : MonoBehaviour
         Pause.enabled = false;
         Gameover.enabled = false;
         Win.enabled = false;
+        Settings.enabled = false;
+        Credits.enabled = false;
 
         currentScreen = CurrentScreen._MainMenu;
     }
@@ -89,6 +95,8 @@ public class UIManager : MonoBehaviour
         Pause.enabled = false;
         Gameover.enabled = false;
         Win.enabled = false;
+        Settings.enabled = false;
+        Credits.enabled = false;
 
         currentScreen = CurrentScreen._Gameplay;
     }
@@ -102,6 +110,8 @@ public class UIManager : MonoBehaviour
         Pause.enabled = true;
         Gameover.enabled = false;
         Win.enabled = false;
+        Settings.enabled = false;
+        Credits.enabled = false;
 
         currentScreen = CurrentScreen._Pause;
     }
@@ -115,6 +125,8 @@ public class UIManager : MonoBehaviour
         Pause.enabled = false;
         Gameover.enabled = true;
         Win.enabled = false;
+        Settings.enabled = false;
+        Credits.enabled = false;
 
         currentScreen = CurrentScreen._Gameover;
     }
@@ -128,7 +140,39 @@ public class UIManager : MonoBehaviour
         Pause.enabled = false;
         Gameover.enabled = false;
         Win.enabled = true;
+        Settings.enabled = false;
+        Credits.enabled = false;
 
         currentScreen = CurrentScreen._Win;
+    }
+
+    public void SettingsScreen()
+    {
+        Time.timeScale = 1;
+
+        MainMenu.enabled = false;
+        Gameplay.enabled = false;
+        Pause.enabled = false;
+        Gameover.enabled = false;
+        Win.enabled = false;
+        Settings.enabled = true;
+        Credits.enabled = false;
+
+        currentScreen = CurrentScreen._Settings;
+    }
+
+    public void CreditsSceen()
+    {
+        Time.timeScale = 1;
+
+        MainMenu.enabled = false;
+        Gameplay.enabled = false;
+        Pause.enabled = false;
+        Gameover.enabled = false;
+        Win.enabled = false;
+        Settings.enabled = false;
+        Credits.enabled = true;
+
+        currentScreen = CurrentScreen._Credits;
     }
 }
