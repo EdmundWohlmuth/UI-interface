@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Singleton : MonoBehaviour
 {
-    public static Singleton Instance;
+    static Singleton Instance;
     void Awake()
     {
         if (Instance != null)
@@ -12,9 +12,9 @@ public class Singleton : MonoBehaviour
             Destroy(this);
         }
         else
-        {
-            Instance = this;
+        {          
             DontDestroyOnLoad(this);
+            Instance = this;
         }
     }
 

@@ -26,7 +26,7 @@ public class LevelManager : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene(0);
         UIManager.MainMenuScreen();
     }
 
