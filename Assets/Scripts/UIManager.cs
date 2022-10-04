@@ -101,7 +101,7 @@ public class UIManager : MonoBehaviour
         Gameplay.enabled = false;
         Pause.enabled = true;
         Gameover.enabled = false;
-        Win.enabled = true;
+        Win.enabled = false;
 
         currentScreen = CurrentScreen._Pause;
     }

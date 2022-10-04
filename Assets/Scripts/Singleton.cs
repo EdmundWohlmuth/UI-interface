@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Singleton : MonoBehaviour
 {
-    static Singleton Instance;
+    static Singleton Instance = null;
     void Awake()
     {
         if (Instance != null)
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
         else
         {          
