@@ -36,10 +36,13 @@ public class UIManager : MonoBehaviour
         switch (currentScreen)
         {
             case CurrentScreen._MainMenu:
-
+                MainMenuScreen();
                 break;
 
             case CurrentScreen._Gameplay:
+
+                GameplayScreen();
+
                 if (Input.GetKeyUp(KeyCode.Escape))
                 {
                     PasueScreen();
@@ -52,20 +55,46 @@ public class UIManager : MonoBehaviour
                 {
                     GameoverScreen();
                 }
+
                 break;
 
             case CurrentScreen._Pause:
+
+                PasueScreen();
+
                 if (Input.GetKeyUp(KeyCode.Escape))
                 {
                     GameplayScreen();
                 }
+
                 break;
 
             case CurrentScreen._Gameover:
 
+                GameoverScreen();
+
                 break;
 
             case CurrentScreen._Win:
+
+                WinScreen();
+
+                break;
+
+            case CurrentScreen._Settings:
+
+                SettingsScreen();
+
+                break;
+
+            case CurrentScreen._Credits:
+
+                CreditsSceen();
+
+                if (Input.GetKeyUp(KeyCode.Escape))
+                {
+                    MainMenuScreen();
+                }
 
                 break;
         }
