@@ -30,12 +30,6 @@ public class UIManager : MonoBehaviour
         MainMenuScreen();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void MainMenuScreen()
     {
         MainMenu.enabled = true;
