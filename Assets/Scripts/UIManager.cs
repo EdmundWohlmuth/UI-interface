@@ -12,7 +12,7 @@ public class UIManager : MonoBehaviour
     public Canvas Credits;
     public Canvas Settings;
 
-    enum CurrentScreen
+    public enum CurrentScreen
     {
         _MainMenu,
         _Gameplay,
@@ -22,7 +22,7 @@ public class UIManager : MonoBehaviour
         _Settings,
         _Credits
     }
-    CurrentScreen currentScreen;
+    public CurrentScreen currentState;
 
     // Start is called before the first frame update
     void Start()
@@ -33,77 +33,11 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (currentScreen)
-        {
-            case CurrentScreen._MainMenu:
-                MainMenuScreen();
-                break;
 
-            case CurrentScreen._Gameplay:
-
-                GameplayScreen();
-
-                if (Input.GetKeyUp(KeyCode.Escape))
-                {
-                    PasueScreen();
-                }
-                else if (Input.GetKeyDown(KeyCode.W))
-                {
-                    WinScreen();
-                }
-                else if (Input.GetKeyDown(KeyCode.L))
-                {
-                    GameoverScreen();
-                }
-
-                break;
-
-            case CurrentScreen._Pause:
-
-                PasueScreen();
-
-                if (Input.GetKeyUp(KeyCode.Escape))
-                {
-                    GameplayScreen();
-                }
-
-                break;
-
-            case CurrentScreen._Gameover:
-
-                GameoverScreen();
-
-                break;
-
-            case CurrentScreen._Win:
-
-                WinScreen();
-
-                break;
-
-            case CurrentScreen._Settings:
-
-                SettingsScreen();
-
-                break;
-
-            case CurrentScreen._Credits:
-
-                CreditsSceen();
-
-                if (Input.GetKeyUp(KeyCode.Escape))
-                {
-                    MainMenuScreen();
-                }
-
-                break;
-        }
     }
 
     public void MainMenuScreen()
     {
-        Time.timeScale = 1;
-
         MainMenu.enabled = true;
         Gameplay.enabled = false;
         Pause.enabled = false;
@@ -112,13 +46,11 @@ public class UIManager : MonoBehaviour
         Settings.enabled = false;
         Credits.enabled = false;
 
-        currentScreen = CurrentScreen._MainMenu;
+        currentState = CurrentScreen._MainMenu;
     }
 
     public void GameplayScreen()
     {
-        Time.timeScale = 1;
-
         MainMenu.enabled = false;
         Gameplay.enabled = true;
         Pause.enabled = false;
@@ -127,13 +59,11 @@ public class UIManager : MonoBehaviour
         Settings.enabled = false;
         Credits.enabled = false;
 
-        currentScreen = CurrentScreen._Gameplay;
+        currentState = CurrentScreen._Gameplay;
     }
 
     public void PasueScreen()
     {
-        Time.timeScale = 0;
-
         MainMenu.enabled = false;
         Gameplay.enabled = false;
         Pause.enabled = true;
@@ -142,13 +72,11 @@ public class UIManager : MonoBehaviour
         Settings.enabled = false;
         Credits.enabled = false;
 
-        currentScreen = CurrentScreen._Pause;
+        currentState = CurrentScreen._Pause;
     }
 
     public void GameoverScreen()
     {
-        Time.timeScale = 0;
-
         MainMenu.enabled = false;
         Gameplay.enabled = false;
         Pause.enabled = false;
@@ -157,13 +85,11 @@ public class UIManager : MonoBehaviour
         Settings.enabled = false;
         Credits.enabled = false;
 
-        currentScreen = CurrentScreen._Gameover;
+        currentState = CurrentScreen._Gameover;
     }
 
     public void WinScreen()
     {
-        Time.timeScale = 1;
-
         MainMenu.enabled = false;
         Gameplay.enabled = false;
         Pause.enabled = false;
@@ -172,13 +98,11 @@ public class UIManager : MonoBehaviour
         Settings.enabled = false;
         Credits.enabled = false;
 
-        currentScreen = CurrentScreen._Win;
+        currentState = CurrentScreen._Win;
     }
 
     public void SettingsScreen()
     {
-        Time.timeScale = 1;
-
         MainMenu.enabled = false;
         Gameplay.enabled = false;
         Pause.enabled = false;
@@ -187,13 +111,11 @@ public class UIManager : MonoBehaviour
         Settings.enabled = true;
         Credits.enabled = false;
 
-        currentScreen = CurrentScreen._Settings;
+        currentState = CurrentScreen._Settings;
     }
 
     public void CreditsSceen()
     {
-        Time.timeScale = 1;
-
         MainMenu.enabled = false;
         Gameplay.enabled = false;
         Pause.enabled = false;
@@ -202,6 +124,6 @@ public class UIManager : MonoBehaviour
         Settings.enabled = false;
         Credits.enabled = true;
 
-        currentScreen = CurrentScreen._Credits;
+        currentState = CurrentScreen._Credits;
     }
 }
