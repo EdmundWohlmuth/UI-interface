@@ -413,7 +413,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &56492178
 MonoBehaviour:
@@ -542,7 +542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330e4eebfd9348f449571aedc528a9a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
+  cam: {fileID: 1832492427}
   uiToHide: {fileID: 2101937440}
   isDistanceBased: 1
 --- !u!1 &239844264
@@ -1185,7 +1185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330e4eebfd9348f449571aedc528a9a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
+  cam: {fileID: 1832492427}
   uiToHide: {fileID: 0}
   isDistanceBased: 0
 --- !u!1001 &1589101120
@@ -1245,6 +1245,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b988737ccd3ac5f4ea62a9d81b6bd751, type: 3}
+--- !u!4 &1832492427 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3217817270682886892, guid: b988737ccd3ac5f4ea62a9d81b6bd751, type: 3}
+  m_PrefabInstance: {fileID: 1589101120}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1839108802
 GameObject:
   m_ObjectHideFlags: 0
