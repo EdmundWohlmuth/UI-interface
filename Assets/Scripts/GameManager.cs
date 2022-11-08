@@ -42,11 +42,11 @@ public class GameManager : MonoBehaviour
                 }
                 else if (Input.GetKeyDown(KeyCode.W))
                 {
-                    UI.WinScreen();
+                   // UI.WinScreen();
                 }
                 else if (Input.GetKeyDown(KeyCode.L))
                 {
-                    UI.GameoverScreen();
+                   // UI.GameoverScreen();
                 }
 
                 break;
