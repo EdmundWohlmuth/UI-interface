@@ -15,13 +15,13 @@ public class healthPickUp : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        source.PlayOneShot(pickUp);
+        /*source.PlayOneShot(pickUp);
         player.GetComponent<AssaultRifle>().incrimentHealth();
 
         GetComponent<BoxCollider>().enabled = false;
         GetComponent<MeshRenderer>().enabled = false;
 
-        StartCoroutine(ItemResetTime(10f));
+        StartCoroutine(ItemResetTime(10f));*/
     }
 
     IEnumerator ItemResetTime(float waitTime)

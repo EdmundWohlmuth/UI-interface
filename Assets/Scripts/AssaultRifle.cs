@@ -23,8 +23,7 @@ public class AssaultRifle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // setAmmoText();
-       // setHealthText();
+        setAmmoText();
     }
 
     // Update is called once per frame
@@ -32,9 +31,11 @@ public class AssaultRifle : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) && ammoCount > 0)
         {
+            Debug.Log("shoot");
             ammoCount--;
-            //setAmmoText();
+            setAmmoText();
             Fire();
+
             int randomNum = Random.Range(1, 3);
             if (randomNum == 1)
             {
@@ -44,6 +45,7 @@ public class AssaultRifle : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Mouse0) && ammo <= 0)
         {
+            Debug.Log("click");
             source.PlayOneShot(noAmmo);
         }
     }
@@ -73,7 +75,7 @@ public class AssaultRifle : MonoBehaviour
 
             if (ammoCount >= 50) ammoCount = 50;
             else if (ammoCount <= 0) ammoCount = 0;
-            //setAmmoText();
+            setAmmoText();
         }
 
         if (other.gameObject.CompareTag("HealthPickup"))
@@ -83,7 +85,6 @@ public class AssaultRifle : MonoBehaviour
 
             if (health >= 150) health = 150;
             else if (health <= 0) health = 0;
-            //setHealthText();
         }
     }
 
@@ -94,25 +95,12 @@ public class AssaultRifle : MonoBehaviour
 
         if (ammoCount >= 50) ammoCount = 50;
         else if (ammoCount <= 0) ammoCount = 0;
-        //setAmmoText();
-    }
-    public void incrimentHealth()
-    {
-        Debug.Log("Picked up health");
-        health = health + 25;
-
-        if (health >= 150) health = 150;
-        else if (health <= 0) health = 0;
-        //setHealthText();
+        setAmmoText();
     }
 
     // ------------------------- set UI --------------------------------------
-    /*void setAmmoText()
+    void setAmmoText()
     {
-        ammoText.text = "Ammo: " + ammoCount.ToString();
+        ammoText.text = ammoCount.ToString();
     }
-    void setHealthText()
-    {
-        healthText.text = "Health: " + health.ToString();
-    }*/
 }
