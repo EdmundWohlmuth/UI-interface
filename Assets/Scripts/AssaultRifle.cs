@@ -31,7 +31,7 @@ public class AssaultRifle : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) && ammoCount > 0)
         {
-            Debug.Log("shoot");
+           // Debug.Log("shoot");
             ammoCount--;
             setAmmoText();
             Fire();
@@ -45,14 +45,14 @@ public class AssaultRifle : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Mouse0) && ammo <= 0)
         {
-            Debug.Log("click");
+           // Debug.Log("click");
             source.PlayOneShot(noAmmo);
         }
     }
 
     void Fire()
     {
-        Debug.Log("Bang!");
+        //Debug.Log("Bang!");
 
         RaycastHit hit;
         if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out hit, range))
@@ -62,6 +62,15 @@ public class AssaultRifle : MonoBehaviour
 
             Sphere.transform.position = hit.point;
             Sphere.transform.parent = hit.transform;
+            Sphere.tag = ("Gloo");
+
+            if (hit.transform.tag == "Enemy")
+            {
+                if (hit.transform.gameObject.GetComponent<cubescript>().speed > 0)
+                {
+                    hit.transform.gameObject.GetComponent<cubescript>().speed--;
+                }               
+            }
         }
     }
 
@@ -70,7 +79,7 @@ public class AssaultRifle : MonoBehaviour
     {
         if (other.gameObject.CompareTag("AmmoPickup"))
         {
-            Debug.Log("Picked up ammo");
+            //Debug.Log("Picked up ammo");
             ammoCount = ammoCount + 10;
 
             if (ammoCount >= 50) ammoCount = 50;
@@ -80,7 +89,7 @@ public class AssaultRifle : MonoBehaviour
 
         if (other.gameObject.CompareTag("HealthPickup"))
         {
-            Debug.Log("Picked up health");
+            //Debug.Log("Picked up health");
             health = health + 25;
 
             if (health >= 150) health = 150;

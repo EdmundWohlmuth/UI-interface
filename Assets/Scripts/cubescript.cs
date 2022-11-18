@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class cubescript : MonoBehaviour
 {
-    float speed = 5;
+    public float speed = 5;
+    int health = 5; //TEMP
 
     // Update is called once per frame
     void Update()
@@ -15,6 +16,6 @@ public class cubescript : MonoBehaviour
         {
             speed = speed * -1;
         }
-
     }
+
 }
