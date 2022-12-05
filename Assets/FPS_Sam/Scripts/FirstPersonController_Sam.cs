@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class FirstPersonController_Sam : MonoBehaviour
 {
-    public bool canMove { get; private set; } = true;
+    public bool canMove = true;
     private bool isRunning => canRun && Input.GetKey(runKey);
     private bool shouldJump => Input.GetKeyDown(jumpKey) && characterController.isGrounded;
     private bool shouldCrouch => Input.GetKeyDown(crouchKey) && !duringCrouchAnimation && characterController.isGrounded;
@@ -129,10 +129,6 @@ public class FirstPersonController_Sam : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         defaultYPos = playerCamera.transform.localPosition.y;
         defaultFOV = playerCamera.fieldOfView;        
-
-
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
     }
 
     private void Update()

@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class UIManager : MonoBehaviour
 {
+    [Header("Screens")]
     public Canvas MainMenu;
     public Canvas Gameplay;
     public Canvas Pause;
@@ -11,6 +14,9 @@ public class UIManager : MonoBehaviour
     public Canvas Win;
     public Canvas Credits;
     public Canvas Settings;
+
+    [Header("Buttons")]
+    public GameObject start;
 
     public enum CurrentScreen
     {
@@ -22,14 +28,15 @@ public class UIManager : MonoBehaviour
         _Settings,
         _Credits
     }
+    [Header("States")]
     public CurrentScreen currentState;
 
-    // Start is called before the first frame update
     void Start()
     {
         MainMenuScreen();
     }
 
+    // -------------------------- Screen States ----------------------- \\
 
     public void MainMenuScreen()
     {
@@ -40,6 +47,10 @@ public class UIManager : MonoBehaviour
         Win.enabled = false;
         Settings.enabled = false;
         Credits.enabled = false;
+
+
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
 
         currentState = CurrentScreen._MainMenu;
     }
@@ -54,6 +65,9 @@ public class UIManager : MonoBehaviour
         Settings.enabled = false;
         Credits.enabled = false;
 
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         currentState = CurrentScreen._Gameplay;
     }
 
@@ -66,6 +80,9 @@ public class UIManager : MonoBehaviour
         Win.enabled = false;
         Settings.enabled = false;
         Credits.enabled = false;
+
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
 
         currentState = CurrentScreen._Pause;
     }
@@ -80,6 +97,9 @@ public class UIManager : MonoBehaviour
         Settings.enabled = false;
         Credits.enabled = false;
 
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+
         currentState = CurrentScreen._Gameover;
     }
 
@@ -92,6 +112,9 @@ public class UIManager : MonoBehaviour
         Win.enabled = true;
         Settings.enabled = false;
         Credits.enabled = false;
+
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
 
         currentState = CurrentScreen._Win;
     }
@@ -106,6 +129,9 @@ public class UIManager : MonoBehaviour
         Settings.enabled = true;
         Credits.enabled = false;
 
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+
         currentState = CurrentScreen._Settings;
     }
 
@@ -118,6 +144,9 @@ public class UIManager : MonoBehaviour
         Win.enabled = false;
         Settings.enabled = false;
         Credits.enabled = true;
+
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
 
         currentState = CurrentScreen._Credits;
     }

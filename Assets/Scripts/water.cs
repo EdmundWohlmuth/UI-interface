@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class water : MonoBehaviour
 {
     public GameObject waterUI;
     bool isInWater = false;
 
+    Color transparent = new Color(1, 1, 1, 0);
+    Color opaque = new Color(1, 1, 1, 1);
+
     // Start is called before the first frame update
     void Start()
     {
         waterUI = GameObject.Find("GameManager/UIManager/Canvas_Gameplay/Water");
-        waterUI.SetActive(false);
+        waterUI.GetComponent<Image>().color = transparent;
     }
 
     // Update is called once per frame
@@ -39,14 +43,14 @@ public class water : MonoBehaviour
         } 
         if (isInWater == true)
         {
-            waterUI.SetActive(true);
+            waterUI.GetComponent<Image>().color = opaque;
         }
     }
 
     IEnumerator DisableWaterEffect()
     {
         yield return new WaitForSeconds(3f);
-        waterUI.SetActive(false);
+        LeanTween.color(waterUI, transparent, 2f); // trying to use material instead of Image
         isInWater = false;
     }
 }

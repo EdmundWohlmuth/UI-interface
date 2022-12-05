@@ -20,18 +20,28 @@ public class AssaultRifle : MonoBehaviour
     public TextMeshProUGUI ammoText;
     public TextMeshProUGUI healthText;
 
+    public FirstPersonController_Sam fpsControl;
+
+    GameObject gameManager;
+    GameManager GM;
+
     // Start is called before the first frame update
     void Start()
-    {
+    {      
         setAmmoText();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (fpsControl.canMove) ShootCheck();
+    }
+
+    void ShootCheck()
+    {
         if (Input.GetKeyDown(KeyCode.Mouse0) && ammoCount > 0)
         {
-           // Debug.Log("shoot");
+            // Debug.Log("shoot");
             ammoCount--;
             setAmmoText();
             Fire();
@@ -45,7 +55,7 @@ public class AssaultRifle : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Mouse0) && ammo <= 0)
         {
-           // Debug.Log("click");
+            // Debug.Log("click");
             source.PlayOneShot(noAmmo);
         }
     }
@@ -66,9 +76,12 @@ public class AssaultRifle : MonoBehaviour
 
             if (hit.transform.tag == "Enemy")
             {
+                Sphere.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                Sphere.transform.LeanScale(new Vector3(1, 1, 1), 0.25f);
                 if (hit.transform.gameObject.GetComponent<cubescript>().speed > 0)
                 {
                     hit.transform.gameObject.GetComponent<cubescript>().speed--;
+                    hit.transform.gameObject.GetComponent<cubescript>().health--;
                 }               
             }
         }
