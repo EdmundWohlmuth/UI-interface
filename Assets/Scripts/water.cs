@@ -50,7 +50,7 @@ public class water : MonoBehaviour
     IEnumerator DisableWaterEffect()
     {
         yield return new WaitForSeconds(3f);
-        LeanTween.color(waterUI, transparent, 2f); // trying to use material instead of Image
+        LeanTween.alpha(waterUI.GetComponent<RectTransform>(), 0f, 1f);
         isInWater = false;
     }
 }

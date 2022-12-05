@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class cubescript : MonoBehaviour
 {
     public float speed = 5;
-    public int health = 5; //TEMP
+    public float health = 5; //TEMP
     public Slider healthBar;
 
     private void Start()

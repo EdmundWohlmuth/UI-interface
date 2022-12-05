@@ -76,13 +76,16 @@ public class AssaultRifle : MonoBehaviour
 
             if (hit.transform.tag == "Enemy")
             {
-                Sphere.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-                Sphere.transform.LeanScale(new Vector3(1, 1, 1), 0.25f);
                 if (hit.transform.gameObject.GetComponent<cubescript>().speed > 0)
                 {
                     hit.transform.gameObject.GetComponent<cubescript>().speed--;
                     hit.transform.gameObject.GetComponent<cubescript>().health--;
                 }               
+            }
+            if (hit.transform.tag == "Enemy" || hit.transform.tag == "Gloo")
+            {
+                Sphere.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                Sphere.transform.LeanScale(new Vector3(1, 1, 1), 0.25f);
             }
         }
     }

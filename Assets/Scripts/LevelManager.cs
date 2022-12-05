@@ -9,15 +9,8 @@ public class LevelManager : MonoBehaviour
 
     public void LoadGameplay()
     {
-        GameObject start = UIManager.start;
-        int id = LeanTween.scale(start, new Vector3(1.2f, 1.2f, 1.2f), 1f).id;
-
-        LTDescr d = LeanTween.descr(id);
-        if (d != null)
-        {
-            SceneManager.LoadScene("Gameplay");
-            UIManager.GameplayScreen();
-        }
+        UIManager.GameplayScreen();
+        SceneManager.LoadScene("Gameplay");
     }
 
     public void LoadMainMenu()
